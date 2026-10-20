@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vector Vanguard — Computer Graphics Arcade</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+<header>
+  <div class="brand"><span>VV</span><div><b>VECTOR VANGUARD</b><small>COMPUTER GRAPHICS // SPACE DEFENSE</small></div></div>
+  <div><button id="sound">♫</button><button id="help">?</button></div>
+</header>
+
+<section id="menu" class="screen active">
+  <div class="hero">
+    <div>
+      <em>REAL-TIME VECTOR COMBAT</em>
+      <h1>DEFEND<br><strong>THE GRID.</strong></h1>
+      <p>Control a geometric interceptor, rotate through 360°, destroy incoming asteroids and survive an accelerating procedural wave.</p>
+      <div class="actions"><button id="start" class="primary">LAUNCH MISSION →</button><button id="lab" class="secondary">OPEN GRAPHICS LAB</button></div>
+      <div class="metrics"><div><b id="bestMenu">00000</b><small>BEST</small></div><div><b>60</b><small>FPS TARGET</small></div><div><b>2D</b><small>VECTOR RENDER</small></div></div>
+    </div>
+    <div class="orbital">
+      <div class="orbit o1"></div><div class="orbit o2"></div><div class="planet"></div><div class="ship-preview"></div>
+      <span class="cross c1">+</span><span class="cross c2">+</span><span class="cross c3">+</span>
+    </div>
+  </div>
+</section>
+
+<section id="game" class="screen game">
+  <div class="gamebox">
+    <canvas id="canvas" width="1280" height="720"></canvas>
+    <div class="hud">
+      <div><small>SCORE</small><b id="score">00000</b></div>
+      <div><small>WAVE</small><b id="wave">01</b></div>
+      <div><small>SHIELD</small><b id="shield">100%</b></div>
+      <div class="right"><span id="fps">FPS --</span><span id="weapon">LASER READY</span></div>
+    </div>
+    <div id="pause" class="modal hidden"><div><em>MISSION PAUSED</em><h2>STANDBY.</h2><p>Press P to resume.</p><button id="resume" class="primary">RESUME</button><button id="quit1" class="secondary">MAIN MENU</button></div></div>
+    <div id="over" class="modal hidden"><div><em>MISSION COMPLETE</em><h2 id="overTitle">SYSTEM SECURED</h2><b id="final">00000</b><p id="overText"></p><button id="again" class="primary">REDEPLOY</button><button id="quit2" class="secondary">MAIN MENU</button></div></div>
+  </div>
+  <div class="controls"><span><kbd>W</kbd>/<kbd>↑</kbd> THRUST</span><span><kbd>A</kbd><kbd>D</kbd> ROTATE</span><span><kbd>SPACE</kbd> FIRE</span><span><kbd>P</kbd> PAUSE</span><span><kbd>ESC</kbd> MENU</span></div>
+</section>
+
+<section id="lab" class="screen">
+  <div class="labhead"><div><em>ACADEMIC MODE</em><h2>GRAPHICS LAB</h2><p>Algorithms used by the Vector Vanguard renderer.</p></div><button id="back" class="secondary">← BACK</button></div>
+  <div class="tabs">
+    <button class="tab active" data-demo="transform">Transformations</button>
+    <button class="tab" data-demo="bres">Bresenham</button>
+    <button class="tab" data-demo="circle">Midpoint Circle</button>
+    <button class="tab" data-demo="collision">Collision</button>
+    <button class="tab" data-demo="clip">Clipping</button>
+  </div>
+  <div class="labpanel"><div><em id="tag">TRANSFORMATIONS</em><h3 id="title">Affine transformation</h3><p id="desc">The ship is translated and rotated every frame. Thruster effects use scaling and local coordinate transforms.</p><pre id="formula">x′ = x cosθ − y sinθ
+y′ = x sinθ + y cosθ</pre></div><canvas id="labcanvas" width="800" height="430"></canvas></div>
+</section>
+<footer><span>VECTOR VANGUARD v1.0</span><span>Canvas 2D • Procedural Geometry • Delta Time</span><span>CG MINI PROJECT</span></footer>
+<script src="game.js"></script>
+</div>
+</body>
+</html>
